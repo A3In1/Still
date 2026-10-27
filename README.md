@@ -7,11 +7,10 @@
 <p align="center">
   A private, local photo library for macOS. Your photos stay in your folders and never leave your Mac.<br>
   <a href="https://a3in1.github.io/Still/"><b>Download</b></a> ·
-  <a href="https://github.com/A3In1/Still/releases">Releases</a> ·
-  <a href="docs/indexing-implementation.md">How indexing works</a>
+  <a href="https://github.com/A3In1/Still/releases">Releases</a>
 </p>
 
-![Still timeline](docs/screenshots/timeline.png)
+![Still timeline](static/screenshots/timeline.png)
 
 ## Features
 
@@ -24,7 +23,7 @@
 - **Private by design.** No account, no cloud, no telemetry. Indexes live next to your photos (`.data/` in each folder) and in the app's own data folder. Face models run locally.
 - **Light and dark themes**, and automatic updates.
 
-![People](docs/screenshots/people.png)
+![People](static/screenshots/people.png)
 
 ## Install
 
