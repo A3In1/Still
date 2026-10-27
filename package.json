@@ -14,7 +14,6 @@
     "build:face-runtime": "python scripts/build_face_worker.py",
     "build:desktop": "npm run build:face-runtime && tauri build"
   },
-  "license": "MIT",
   "dependencies": {
     "@tauri-apps/api": "^2",
     "@tauri-apps/plugin-dialog": "^2.8.0",

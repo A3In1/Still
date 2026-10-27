@@ -30,7 +30,12 @@ int gphotos_decode(const char *path, const char *output, unsigned edge) {
         NSMutableDictionary *options = [@{(__bridge NSString *)kCGImageSourceCreateThumbnailFromImageAlways: @YES,
             (__bridge NSString *)kCGImageSourceCreateThumbnailWithTransform: @YES,
             (__bridge NSString *)kCGImageSourceThumbnailMaxPixelSize: @(edge ? edge : 32768)} mutableCopy];
-        if (@available(macOS 14.0, *)) options[(NSString *)kCGImageSourceDecodeRequest]=(NSString *)kCGImageSourceDecodeToSDR;
+        // macOS 14+ key; weak-symbol check because @available needs compiler-rt, which Rust doesn't link.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunguarded-availability-new"
+#pragma clang diagnostic ignored "-Wtautological-pointer-compare"
+        if (&kCGImageSourceDecodeRequest != NULL) options[(NSString *)kCGImageSourceDecodeRequest]=(NSString *)kCGImageSourceDecodeToSDR;
+#pragma clang diagnostic pop
         CGImageRef image = CGImageSourceCreateThumbnailAtIndex(source, 0, (__bridge CFDictionaryRef)options);
         bool ok = writePreview(image, output);
         if (image) CGImageRelease(image);

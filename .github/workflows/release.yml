@@ -16,8 +16,7 @@ jobs:
         include:
           - runner: macos-latest # Apple Silicon
             target: aarch64-apple-darwin
-          - runner: macos-15-intel
-            target: x86_64-apple-darwin
+          # shortcut: no Intel build, onnxruntime>1.23.2 ships no x86_64 macOS wheels; re-add with a per-arch pin if needed.
     name: build (${{ matrix.target }})
     runs-on: ${{ matrix.runner }}
     steps:
