@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Still",
+  "version": "../package.json",
+  "identifier": "com.varalikaagarwal.still",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../build"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Still",
+        "width": 800,
+        "height": 600
+      }
+    ],
+    "security": {
+      "csp": null,
+      "assetProtocol": {
+        "enable": true,
+        "scope": [
+          "**"
+        ]
+      }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "resources": {
+      "resources/face-runtime/": "face-runtime/"
+    },
+    "createUpdaterArtifacts": true,
+    "macOS": {
+      "signingIdentity": "-",
+      "minimumSystemVersion": "11.0"
+    }
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDk2MTY3NzA2RjkwQUVBMTQKUldRVTZncjVCbmNXbGdkNk44UGRHcHlLZmo2RFFMZ3NkY1M0U2R2ZDdyb3Nmd0ZYTkdLeDhSTGkK",
+      "endpoints": [
+        "https://github.com/A3In1/Still/releases/latest/download/latest.json"
+      ]
+    }
+  }
+}

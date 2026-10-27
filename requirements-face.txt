@@ -1,0 +1,8 @@
+insightface==2.0
+onnxruntime==1.30.0
+opencv-python==5.0.0.93
+numpy==2.4.6
+scikit-learn==1.9.1
+Pillow==12.3.0
+pyinstaller==6.16.0
+pillow-heif==1.1.1

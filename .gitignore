@@ -1,0 +1,54 @@
+# Frontend dependencies and generated output
+node_modules/
+/build/
+/dist/
+/package/
+/.svelte-kit/
+/.vite/
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# Local environment settings (keep shareable templates)
+.env
+.env.*
+!.env.example
+!.env.*.example
+!.env.template
+
+# Python environments, bytecode, and face-worker build intermediates
+/.face-build/
+/.face-venv/
+/.venv/
+/venv/
+/.conda/
+__pycache__/
+*.py[cod]
+
+# Private photo indexes, annotations, and SQLite sidecars at any depth
+.data/
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite-journal
+*.sqlite-shm
+*.sqlite-wal
+*.sqlite3
+*.sqlite3-journal
+*.sqlite3-shm
+*.sqlite3-wal
+
+# Runtime diagnostics and transient files
+*.log
+/:memory:.ses
+*.pending
+*.pending.jpg
+
+# OS/editor temporary files; keep shared editor settings
+.DS_Store
+._*
+Thumbs.db
+*.swp
+*.swo
+*~

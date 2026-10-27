@@ -1,0 +1,66 @@
+[package]
+name = "still"
+version = "0.1.0"
+default-run = "Still"
+description = "Still: a private, local photo library"
+authors = ["you"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+# The binary name is what macOS shows in the menu bar and Activity Monitor.
+[[bin]]
+name = "Still"
+path = "src/main.rs"
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "still_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+cc = "1"
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["protocol-asset"] }
+tauri-plugin-opener = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+jwalk = "0.9.0"
+rayon = "1.12.0"
+rusqlite = { version = "0.40.2", features = ["bundled"] }
+tauri-plugin-dialog = "2"
+nom-exif = "3.8.0"
+image = { version = "0.25.10", features = ["webp"] }
+fast_image_resize = "6.1.0"
+thumbhash = "0.1.0"
+base64 = "0.23.1"
+chrono = "0.4.45"
+notify = "6.1.1"
+kamadak-exif = "0.6.1"
+reverse_geocoder = "4.1.1"
+lazy_static = "1.5.0"
+little_exif = "0.6.23"
+urlencoding = "2.1"
+tauri-plugin-fs = "2.0.0"
+xxhash-rust = { version = "0.8", features = ["xxh3"] }
+webp = "0.3.1"
+tauri-plugin-updater = "2"
+
+# Read the optimization guideline for more details: https://tauri.app/concept/size/#cargo-configuration
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+panic = "abort"
+strip = true
+
+# Preview decoding must stay responsive when running tauri dev.
+[profile.dev.package.image]
+opt-level = 3
+
+[profile.dev.package.zune-jpeg]
+opt-level = 3

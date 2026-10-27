@@ -1,0 +1,9 @@
+# Cargo outputs (keep Cargo.lock for reproducible app builds)
+/target/
+
+# Generated Tauri capability schemas (keep capabilities/ and icons/)
+/gen/schemas/
+
+# Generated PyInstaller runtime, native libraries, and model weights.
+# Rebuild with scripts/build_face_worker.py using requirements-face.txt.
+/resources/face-runtime/

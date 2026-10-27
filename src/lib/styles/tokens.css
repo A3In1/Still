@@ -1,0 +1,73 @@
+/* Shared design tokens ("still" look). Every component uses these variables; no hard-coded colours. */
+:root {
+  --bg: #ffffff;
+  --sidebar-bg: #f7f7f5;
+  --nav-active: #ececE8;
+  --text: #1c1c1a;
+  --muted: #8b8b86;
+  --hairline: #e6e6e2;
+  --search-bg: #f4f4f2;
+  --surface: #ffffff;
+  --surface-hover: #f2f2ef;
+  --placeholder: #efefec;
+  --danger: #b3261e;
+  --overlay: rgba(20, 20, 19, 0.45);
+  --viewer-bg: #0d0d0c;
+
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --fs-title: 40px;
+  --fs-year: 26px;
+  --fs-day: 15px;
+  --fs-nav: 16px;
+  --fs-body: 14px;
+  --fs-meta: 13px;
+  --fs-label: 11px;
+
+  --sidebar-width: 250px;
+  --gutter: 48px;
+  --photo-gap: 4px;
+  --day-gap: 32px;
+  --radius-control: 6px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #141413;
+    --sidebar-bg: #1b1b1a;
+    --nav-active: #262624;
+    --text: #ededea;
+    --muted: #8e8e89;
+    --hairline: #2a2a28;
+    --search-bg: #20201f;
+    --surface: #1b1b1a;
+    --surface-hover: #242422;
+    --placeholder: #232321;
+    --danger: #f2b8b5;
+    --overlay: rgba(0, 0, 0, 0.6);
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --bg: #141413;
+  --sidebar-bg: #1b1b1a;
+  --nav-active: #262624;
+  --text: #ededea;
+  --muted: #8e8e89;
+  --hairline: #2a2a28;
+  --search-bg: #20201f;
+  --surface: #1b1b1a;
+  --surface-hover: #242422;
+  --placeholder: #232321;
+  --danger: #f2b8b5;
+  --overlay: rgba(0, 0, 0, 0.6);
+  color-scheme: dark;
+}
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
